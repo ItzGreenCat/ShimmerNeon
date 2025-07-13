@@ -1,0 +1,353 @@
+:root {
+    --primary-pink: #FF69B4; /* 亮粉色 (Hot Pink) */
+    --secondary-pink: #FF1493; /* 深粉色 (Deep Pink) */
+    --accent-pink: #FFC0CB; /* 浅粉色 (Light Pink) */
+    --dark-bg: #0A000A; /* 极深的背景色，接近黑色 */
+    --card-bg: #1A1A2E; /* 卡片背景色，更暗 */
+    --text-color: #F8F8FF; /* 幽灵白 */
+    --dark-text: #E0E0E0; /* 深色背景下的浅色文字 */
+}
+
+/* 基础样式和重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+}
+
+main {
+    margin: 0 auto;
+}
+
+/* --- Header and Navigation --- */
+header {
+    background-color: var(--dark-bg);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-pink);
+    text-shadow: 0 0 15px var(--accent-pink);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-pink);
+    text-shadow: 0 0 10px var(--primary-pink);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    padding: 6rem 5% 6rem 5%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #1a001a 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh; 
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 10;
+    position: relative;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--accent-pink); 
+    text-shadow: 0 0 20px var(--accent-pink);
+    animation: textGlow 2s infinite alternate;
+}
+
+/* 调整 Hero Section 描述文本的底部外边距，以增加与按钮的间距 */
+.hero-content p {
+    margin-bottom: 3.5rem; /* 增加底部间距，确保按钮往下移动 */
+}
+
+/* --- CTA Button and Glow Effect --- */
+.cta-button, .download-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    background: linear-gradient(90deg, var(--primary-pink) 0%, var(--secondary-pink) 100%);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--primary-pink); 
+    animation: glowAnimation 1.5s infinite alternate;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover, .download-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px var(--primary-pink);
+}
+
+/* --- Sections and Feature Grid --- */
+/* 调整 Features Section 的顶部间距，确保与 Hero Section 有足够的距离 */
+.features-section {
+    padding-top: 8rem; 
+    padding-bottom: 4rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
+}
+
+/* 其他 Section 保持之前的 padding */
+.comparison-section, .reviews-section, .download-section {
+    padding: 4rem 10%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--primary-pink);
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.feature-item {
+    background: rgba(255, 105, 180, 0.1);
+    border: 2px solid var(--secondary-pink);
+    padding: 2.5rem;
+    border-radius: 15px;
+    width: 300px; 
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+    transition: transform 0.3s;
+}
+
+.feature-item h3 {
+    color: var(--accent-pink);
+    margin-bottom: 1rem;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 20, 147, 0.4);
+}
+
+/* --- 功能对比表格 (Comparison Table) 样式 --- */
+.comparison-section {
+    background-color: var(--dark-bg);
+}
+
+.comparison-table-container {
+    background: #18191C;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--dark-text);
+    text-align: left;
+}
+
+.comparison-table th, .comparison-table td {
+    padding: 1rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparison-table th {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.comparison-table thead th:nth-child(2) {
+    color: var(--primary-pink);
+}
+
+.comparison-table td {
+    font-size: 1rem;
+}
+
+.check-icon {
+    color: var(--primary-pink);
+    font-size: 1.5rem;
+}
+
+/* --- 评论区 (Reviews Section) 布局和样式 --- */
+.reviews-grid {
+    display: flex;
+    justify-content: center; 
+    gap: 30px; 
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.review-card {
+    background: #18191C; 
+    border: 2px solid rgba(255, 105, 180, 0.2);
+    border-radius: 15px;
+    padding: 2.5rem;
+    width: 300px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left; 
+}
+
+.quote-icon {
+    font-size: 4rem;
+    color: var(--secondary-pink);
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    opacity: 0.2;
+}
+
+.review-text {
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: var(--dark-text);
+    position: relative;
+}
+
+/* 确保评论卡片内人物头像和文字正确对齐 */
+.reviewer-info {
+    display: flex;
+    align-items: center; /* 确保垂直居中对齐 */
+    text-align: left;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-right: 1rem;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+.reviewer-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 确保在 Flex 容器内部也垂直居中 */
+}
+
+.reviewer-name {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.user-type {
+    font-size: 0.9rem;
+    color: var(--accent-pink);
+}
+
+/* --- Download Section and Footer --- */
+.download-section {
+    background: var(--card-bg);
+    padding: 4rem 10%;
+    border-top: 1px solid rgba(255, 105, 180, 0.1);
+}
+
+.download-button {
+    margin-top: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: var(--dark-bg);
+    border-top: 1px solid rgba(255, 105, 180, 0.1);
+    color: var(--dark-text);
+}
+
+/* --- 动画 Keyframes --- */
+@keyframes glowAnimation {
+    0% { box-shadow: 0 0 15px var(--primary-pink); }
+    100% { box-shadow: 0 0 30px var(--secondary-pink); }
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 15px var(--accent-pink), 0 0 25px var(--primary-pink); }
+    100% { text-shadow: 0 0 20px var(--accent-pink), 0 0 30px var(--primary-pink); }
+}
+
+/* 滚动动画 AOS 基础样式 */
+[data-aos] {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+[data-aos="fade-in"] {
+    opacity: 0;
+}
+
+[data-aos="fade-right"] {
+    transform: translateX(-50px);
+}
+
+[data-aos="zoom-in"] {
+    transform: scale(0.8);
+}
+
+.aos-animate {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
